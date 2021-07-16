@@ -25,3 +25,17 @@ jobs:
           install: false
           start: start:ci
           wait-on: 'http://localhost:3000'
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        if: failure()
+        with:
+          name: screenshots
+          path: web/cypress/screenshots
+          
+      - name: Upload a Videos
+        uses: actions/upload-artifact@v2.2.4
+        if: failure()
+        with:
+          name: videos
+          path: web/cypress/videos
