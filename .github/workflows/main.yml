@@ -23,7 +23,7 @@ jobs:
         with:
           working-directory: web
           install: false
-          start: start:ci
+          start: npm run start:ci
           wait-on: 'http://localhost:3000'
           
       - name: Upload a Build Artifact
