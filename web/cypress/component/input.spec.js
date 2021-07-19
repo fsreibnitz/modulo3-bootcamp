@@ -33,11 +33,14 @@ context('Renderizar componente', () => {
 		cy.get('@labelInput').should('contain', label)
 
 		cy.get('@valueInput').should('have.value',name)
-
+		cy.get('@valueInput').should('have.attr','type').and('equal','text')
 		cy.get('@valueInput').focus()
+		cy.get('@valueInput').focused().then(($elemento => {
+		 	 expect($elemento).to.have.css('font','16px Archivo')
+				expect($elemento).to.have.attr('type','text')//outra forma de pegar o type
+		  }))
 
-	
-	
+
 	});
 
 });
